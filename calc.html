@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <style>
+      .calculator {
+        width: 400px;
+        height: 500px;
+        margin: 0 auto;
+        background-color: #CCC;
+        padding: 20px;
+      }
+      .output {
+        background-color: #FFF;
+        height: 80px;
+        width: 100%;
+        text-align: right;
+        padding-right: 10px;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+      .key {
+        background-color: #DDD;
+        border: 1px solid #BBB;
+        width: 70px;
+        height: 70px;
+        float: left;
+        margin: 5px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="output" id="output"></div>
+      <div class="key" id="clear">C</div>
+      <div class="key" id="backspace">Backspace</div>
+      <div class="key" id="percent">%</div>
+      <div class="key" id="divide">/</div>
+      <div class="key" id="7">7</div>
+      <div class="key" id="8">8</div>
+      <div class="key" id="9">9</div>
+      <div class="key" id="multiply">x</div>
+      <div class="key" id="4">4</div>
+      <div class="key" id="5">5</div>
+      <div class="key" id="6">6</div>
+      <div class="key" id="subtract">-</div>
+      <div class="key" id="1">1</div>
+      <div class="key" id="2">2</div>
+      <div class="key" id="3">3</div>
+      <div class="key" id="add">+</div>
+      <div class="key" id="0">0</div>
+      <div class="key" id="decimal">.</div>
+      <div class="key" id="equals">=</div>
+    </div>
+
+    <script>
+      const keys = document.querySelectorAll(".key");
+      const output = document.querySelector("#output");
+
+      keys.forEach(key => {
+        key.addEventListener("click", () => {
+          if (key.id === "clear") {
+            output.textContent = "";
+          } else if (key.id === "equals") {
+            output.textContent = eval(output.textContent);
+          } else if (key.id === "backspace") {
+            output.textContent = output.textContent.slice(0, -1);
+          } else {
+            output.textContent += key.textContent;
+          }
+        });
+      });
+    </script>
+  </body>
+</html
